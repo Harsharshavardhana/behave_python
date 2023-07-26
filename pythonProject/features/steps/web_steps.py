@@ -1,3 +1,5 @@
+from datetime import time
+
 from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -17,15 +19,13 @@ def step_impl2(context):
 @Given(u'i should enter the username')
 def step_impl3(context):
     username = context.driver.find_element(By.ID, "user-name")
-    username.send_keys(Keys.ENTER)
-    username.sendkey("standard_user")
+    username.send_keys(Keys.ENTER + "standard_user")
 
 
 @Given(u'i should enter the password')
 def step_impl4(context):
     password = context.driver.find_element(By.ID, "password")
-    password.send_keys(Keys.ENTER,"secret_sauce")
-    password.sendkey("secret_sauce")
+    password.send_keys(Keys.ENTER + "secret_sauce")
 
 
 @then(u'click login button')
@@ -36,8 +36,9 @@ def step_impl4(context):
 
 @then(u'I should land on home page')
 def step_impl4(context):
-    verify_text = context.driver.find_element(By.XPATH, '//*[@id="header_container"]/div[1]/div[2]/div').getText()
-    assert verify_text == 'Example Domains'
+    verify_text = context.driver.find_element(By.XPATH, "//*[@id='header_container']/div[1]/div[2]/div")
+    print(verify_text.text)
+    assert verify_text.text == 'Swag Labs'
 
 
 @given(u'I have quit the application')
