@@ -1,0 +1,54 @@
+@when(u'I enter username')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter username')
+
+then(u'I should get the error message')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then I should get the error message')
+
+@when(u'I enter password')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter password')
+
+
+@when(u'I click on Login button')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I click on Login button')
+
+
+
+
+@when(u'I enter username as "abc@xyz.com"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter username as "abc@xyz.com"')
+
+
+@when(u'I enter password as "Abc@1234"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter password as "Abc@1234"')
+
+
+@then(u'I should get the error message as "The email or password you have entered is invalid."')
+def step_impl(context):
+    raise NotImplementedError(
+        u'STEP: Then I should get the error message as "The email or password you have entered is invalid."')
+
+
+@when(u'I enter username as "pqr@xyz.com"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter username as "pqr@xyz.com"')
+
+
+@when(u'I enter password as "Pqr@1234"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter password as "Pqr@1234"')
+
+
+@when(u'I enter username as "xyz@abc.com"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter username as "xyz@abc.com"')
+
+
+@when(u'I enter password as "Xyz@1234"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I enter password as "Xyz@1234"')
