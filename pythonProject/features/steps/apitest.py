@@ -5,20 +5,26 @@ from behave import *
 from behave.formatter import json
 
 
-@Given(u'I have request the GET Api link "{url}" and validate status code "{code}"')
-def step_impl6(context, url, code):
-    responce = requests.get(url)
-    status_code = responce.status_code
-    print(status_code)
-    print(code)
-    assert status_code == code
+@Given(u'I have request the GET Api link and validate GET status code')
+def step_impl6(context):
+    responce = requests.get("http://localhost:3000/Database")
+    assert responce.status_code == 200
 
 
-@Given(u'I have request the POST Api link "{url}" and validate status code "{code1} and "{playload}"')
-def step_impl6(context, url, code1, playload):
-    responce = requests.post(url, json=playload)
-    status_code_creat = responce.status_code
-    print(status_code_creat)
-    data = responce.json()
-    print(data)
-    assert status_code_creat != code1
+@Given(u'I have request the GET Api link and validate POST status code')
+def step_impl6(context):
+    playload = {
+        "postId": 1,
+        "id": 500,
+        "name": "id labore ex et quam laborum",
+        "email": "Eliseo@gardner.biz",
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    }
+    responce = requests.post("http://localhost:3000/Database", json=playload)
+    assert responce.status_code == 201
+
+
+@Given(u'I have request the GET Api link and validate Delete status code')
+def step_impl6(context):
+    responce = requests.delete("http://localhost:3000/Database/500")
+    assert responce.status_code == 200
