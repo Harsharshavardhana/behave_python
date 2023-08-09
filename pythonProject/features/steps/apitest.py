@@ -2,7 +2,6 @@ from multiprocessing import context
 
 import requests
 from behave import *
-from behave.formatter import json
 
 
 @Given(u'I have request the GET Api link and validate GET status code')
@@ -27,4 +26,17 @@ def step_impl6(context):
 @Given(u'I have request the GET Api link and validate Delete status code')
 def step_impl6(context):
     responce = requests.delete("http://localhost:3000/Database/500")
+    assert responce.status_code == 200
+
+
+@Given(u'I have request the GET Api link and validate PUT status code')
+def step_impl6(context):
+    playload = {
+        "postId": 1,
+        "id": 500,
+        "name": "id labore ex et quam laborum",
+        "email": "Eliseo@gardner.biz",
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    }
+    responce = requests.put("http://localhost:3000/Database/500", json=playload)
     assert responce.status_code == 200

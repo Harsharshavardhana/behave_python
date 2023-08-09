@@ -1,20 +1,21 @@
-from datetime import time
-
+from selenium.webdriver.remote.file_detector import LocalFileDetector
 from behave import *
-from selenium import webdriver
+from selenium_Grid import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 
-@given(u'I have launched the application')
-def step_impl1(context):
-    context.driver = webdriver.Edge()
-
-
-@then(u'I should enter the swags lab page')
+@Given(u'I have launched the application and I should enter the swags lab page')
 def step_impl2(context):
-    context.driver.get("https://www.saucedemo.com/")
-    context.driver.maximize_window()
+    chrome_options = webdriver.EdgeOptions()
+    chrome_options.set_capability("browserVersion", "67")
+    chrome_options.set_capability("platformName", "Windows XP")
+    driver = webdriver.Remote(
+        command_executor='http://192.168.106.113:4444',
+        options=chrome_options)
+    driver.file_detector = LocalFileDetector()
+    driver.get("https://www.saucedemo.com/")
+    driver.maximize_window()
 
 
 @Given(u'i should enter the username as "{name}"')
