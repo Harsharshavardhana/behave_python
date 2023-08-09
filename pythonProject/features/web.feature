@@ -2,7 +2,8 @@
 Feature: This feature will be used to test the login functionality of Simplilearn application
 
   Scenario: Validate the Login success scenario
-    Given I have launched the application and I should enter the swags lab page
+    Given I have launched the application
+    Then I should enter the swags lab page
     Given i should enter the username as "standard_user"
     Given i should enter the password as "secret_sauce"
     Then  click login button
@@ -10,7 +11,8 @@ Feature: This feature will be used to test the login functionality of Simplilear
     Given I have quit the application
 
   Scenario Outline: Validate the Login failure scenario
-    Given  I have launched the application and I should enter the swags lab page
+    Given I have launched the application
+    Then I should enter the swags lab page
     Given i should enter the username as "<UserName>"
     Given i should enter the password as "<Password>"
     Then  click login button
